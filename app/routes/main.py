@@ -9,3 +9,7 @@ def index():
 @bp.route('/hello')
 def hello():
     return "<div>Hello from HTMX!</div>"
+
+@bp.route('/expenses')
+def expenses():
+    return render_template('expenses.html')
