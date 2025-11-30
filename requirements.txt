@@ -2,3 +2,5 @@ flask
 flask-sqlalchemy
 pymysql
 python-dotenv
+pytest
+beautifulsoup4
