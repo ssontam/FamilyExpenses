@@ -43,3 +43,53 @@ The application is configured to use SQLAlchemy.
 -   Currently, it defaults to SQLite for simplicity.
 -   To use MySQL, update `SQLALCHEMY_DATABASE_URI` in `config.py` with your MySQL connection string:
     `mysql+pymysql://username:password@localhost/db_name`
+
+
+Walkthrough - Flask + HTMX Starter
+I have successfully created a Flask application integrated with HTMX, following the factory pattern and prepared for MySQL.
+
+Changes
+Project Structure
+Created the following structure:
+
+FamilyExpenses/
+├── app/
+│   ├── __init__.py      # App factory
+│   ├── models/          # Database models
+│   ├── routes/          # Route blueprints
+│   ├── static/          # Static files
+│   └── templates/       # Jinja2 templates
+├── config.py            # Configuration
+├── run.py               # Entry point
+├── requirements.txt     # Dependencies
+└── README.md            # Documentation
+Key Components
+Backend
+App Factory (
+app/init.py
+): Initializes Flask and SQLAlchemy.
+Routes (
+app/routes/main.py
+): Contains a basic route serving the index page and an HTMX endpoint /hello.
+Config (
+config.py
+): Sets up database URI (defaults to SQLite, ready for MySQL).
+Frontend
+Base Template (
+app/templates/base.html
+): Includes HTMX script.
+Index Template (
+app/templates/index.html
+): Demonstrates HTMX hx-get to swap content without reloading.
+Verification Results
+Automated Tests
+Ran the application locally.
+Verified GET / returns the welcome page.
+Verified GET /hello returns the HTMX content snippet.
+Manual Verification
+The application starts successfully and serves requests.
+
+$ python3 run.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000
